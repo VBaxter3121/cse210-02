@@ -1,0 +1,49 @@
+Main
+    Calls: Director
+
+Director
+    Calls: Cards
+    Behaviours
+        Start game
+            Draw()
+            Guess()
+            Loop
+                Loop()
+                    Draw()
+                    Check card()
+                Check guess()
+                Calculate()
+                Check score()
+                    If keep playing
+                        Guess()
+                    Else
+                        End game
+        Guess
+            Input: Higher or lower?
+        Check Guess
+            Compare Player.guess with current and previous to see if player was correct
+        Calculate Score
+            Add or subtract points accordingly
+        Check score
+            If score == 0, end game, else ask if player wants to guess again and call guess()
+
+    States
+        Player
+            Score
+                Current points
+            Guess
+                Current guess
+
+Cards
+    Behaviours
+        Draw
+            Choose a random number from 1-13
+            Store value to current
+        Check card is not same as previous
+            If current == previous, draw a new card
+            
+    States
+        Current
+            Current card
+        Previous
+            Previous card
